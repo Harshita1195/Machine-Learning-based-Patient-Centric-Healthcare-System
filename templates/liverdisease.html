@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare System | Liver Disease</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="{{ url_for('home') }}" class="logo"> <i class="fas fa-medkit"></i> Healthcare </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('heartdisease') }}">Heart Disease</a>
+        <a href="{{ url_for('liverdisease') }}">Liver Disease</a>
+        <a href="{{ url_for('breastcancer') }}">Breast Cancer</a>
+        <a href="{{ url_for('malariadisease') }}">Malaria</a>
+        <a href="{{ url_for('pneumoniadisease') }}">Pneumonia</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search" style="visibility: hidden;"></div>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(static/images/liver.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>Liver Disease Predictor</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+    <!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="content", style="text-align: justify;">
+        <p>
+        Liver disease is any disturbance of liver function that causes illness. The liver is responsible for many critical functions within the body and should it become diseased or injured, the loss of those functions can cause significant damage to the body. Patients with Liver disease have been continuously increasing because of excessive consumption of alcohol, inhale of harmful gases, intake of contaminated food, pickles and drugs.This data set contains 416 liver patient records and 167 non liver patient records collected from North East of Andhra Pradesh, India. The "Dataset" column is a class label used to divide groups into liver patient (liver disease) or not (no disease). This data set contains 441 male patient records and 142 female patient records.
+        <br>Data Source: <a href="https://www.kaggle.com/uciml/indian-liver-patient-records">Liver Disease Dataset</a></p>
+        
+        <strong><p>Attribute Information:</strong><br>
+        Age of the patient
+        <br>Gender of the patient
+        <br>Total Bilirubin
+        <br>Direct Bilirubin
+        <br>Alkaline Phosphotase
+        <br>Alamine Aminotransferase
+        <br>Aspartate Aminotransferase
+        <br>Total Protiens
+        <br>Albumin
+        <br>Albumin and Globulin Ratio
+        <br>Dataset: field used to split the data into two sets (patient with liver disease, or no disease)</p>
+
+    </div>
+</section>
+
+   <section class="reviews" id="reviews" style="background-color: rosybrown;">    
+    <h1 style="color: green;">Liver Disease Predictor</h1>    
+        <form action="{{ url_for('liverdisease')}}" method="POST" style="font-size: 15px">
+            <div class="form-group">     
+            <label><strong>Age</strong></label> <input class="form-control" style="font-size: 15px" name="Age" type="number"  required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Gender</strong></label>
+            <select class="form-control" style="font-size: 15px" name = 'Gender' style="font-weight: bold" required>
+             <option value="0">Female</option>
+             <option value="1">Male</option></select></div>
+
+            <div class="form-group">
+            <label><strong>Total Bilirubin</strong></label> <input class="form-control" style="font-size: 15px" name="Total_Bilirubin" type="number" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Direct Bilirubin</strong></label> <input class="form-control" style="font-size: 15px" name="Direct_Bilirubin" type="number" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Alkaline Phosphotase</strong></label> <input class="form-control" style="font-size: 15px" name="Alkaline_Phosphotase" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Alamine Aminotransferase</strong></label> <input class="form-control" style="font-size: 15px" name="Alamine_Aminotransferase" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Aspartate Aminotransferase</strong></label> <input class="form-control" style="font-size: 15px" name="Aspartate_Aminotransferase" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Total Protiens</strong></label> <input class="form-control" name="Total_Protiens" style="font-size: 15px" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Albumin</strong></label> <input class="form-control" style="font-size: 15px" name="Albumin" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+            <div class="form-group">
+            <label><strong>Albumin and Globulin Ratio</strong></label> <input class="form-control" style="font-size: 15px" name="Albumin_and_Globulin_Ratio" type="number" step="any" required="required" style="font-weight: bold"></div>
+
+             <button  style="font-size:15px" class="btn btn-info" type="submit ">Predict</button>
+            
+        </form>
+    </section> 
+
+
+<!-- footer section starts  -->
+
+<section class="box-container" style="background-color: black;">
+    <div style="color: whitesmoke; font-size: 20px; text-align: center;"> © 2021 Healthcare System | All rights reserved.</div>
+</section>
+<!-- footer section ends -->
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

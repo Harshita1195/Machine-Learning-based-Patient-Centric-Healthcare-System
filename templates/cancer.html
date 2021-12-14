@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare System | Breast Cancer</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="{{ url_for('home') }}" class="logo"> <i class="fas fa-medkit"></i> Healthcare </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('heartdisease') }}">Heart Disease</a>
+        <a href="{{ url_for('liverdisease') }}">Liver Disease</a>
+        <a href="{{ url_for('breastcancer') }}">Breast Cancer</a>
+        <a href="{{ url_for('malariadisease') }}">Malaria</a>
+        <a href="{{ url_for('pneumoniadisease') }}">Pneumonia</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search" style="visibility: hidden;"></div>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(static/images/cancer.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>Breast Cancer Predictor</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+    <!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="content", style="text-align: justify;">
+        <p>    
+        Breast cancer can occur in women and rarely in men. Symptoms of breast cancer include a lump in the breast, bloody discharge from the nipple and changes in the shape or texture of the nipple or breast. Its treatment depends on the stage of cancer. It may consist of chemotherapy, radiation, hormone therapy and surgery.<br>
+        Data Source: <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29">Breast Cancer Dataset</a>
+        <br>The dataset has been taken from UCI machine learning repository. The main objective of the analysis is to perform classification of tumors i.e., benign(B) or malignant(M). A benign tumor is a tumor that does not invade its surrounding tissue or spread around the body. A malignant tumor is a tumor that may invade its surrounding tissue or spread around the body. This dataset consists of 569 rows and 33 columns.</p>
+
+        <strong><p>Attribute Information:</strong><br>
+        id: ID number
+        <br>diagnosis: The diagnosis of breast tissues (M = malignant, B = benign)
+        <br>radius_mean: mean of distances from center to points on the perimeter
+        <br>texture_mean: standard deviation of gray-scale values
+        <br>perimeter_mean: mean size of the core tumor
+        <br>area_mean
+        <br>smoothness_mean: mean of local variation in radius lengths
+        <br>compactness_mean: mean of perimeter² / area — 1.0
+        <br>concavity_mean: mean of severity of concave portions of the contour
+        <br>concave points_mean: mean for number of concave portions of the contour
+        <br>symmetry_mean
+        <br>fractal_dimension_mean: mean for “coastline approximation” — 1
+        <br>radius_se: standard error for the mean of distances from center to points on the perimeter
+        <br>texture_se: standard error for standard deviation of gray-scale values
+        <br>perimeter_se
+        <br>area_se
+        <br>smoothness_se: standard error for local variation in radius lengths
+        <br>compactness_se: standard error for perimeter² / area — 1.0
+        <br>concavity_se: standard error for severity of concave portions of the contour
+        <br>concave points_se: standard error for number of concave portions of the contour
+        <br>symmetry_se
+        <br>fractal_dimension_se: standard error for “coastline approximation” — 1
+        <br>radius_worst: “worst” or largest mean value for mean of distances from center to points on the perimeter
+        <br>texture_worst: “worst” or largest mean value for standard deviation of gray-scale values
+        <br>perimeter_worst
+        <br>area_worst
+        <br>smoothness_worst: “worst” or largest mean value for local variation in radius lengths
+        <br>compactness_worst: “worst” or largest mean value for perimeter² / area — 1.0
+        <br>concavity_worst: “worst” or largest mean value for severity of concave portions of the contour
+        <br>concave points_worst: “worst” or largest mean value for number of concave portions of the contour
+        <br>symmetry_worst
+        <br>fractal_dimension_worst: “worst” or largest mean value for “coastline approximation” — 1</p>
+        
+    </div>
+</section>
+
+<section class="reviews" id="reviews" style="background-color: rosybrown;">    
+    <h1 style="color: green;">Breast Cancer Predictor</h1>
+
+        <form action="{{ url_for('breastcancer')}}" method="POST" style="font-size: 15px">    
+            
+            <div class="form-group">
+            <label for="first"><strong>Texture Mean - standard deviation of gray-scale values</strong></label> <input class="form-control" style="font-size: 15px" name="texture_mean" type="number" step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="second"><strong>Perimeter Mean - Mean size of the core tumor</strong></label> <input class="form-control" style="font-size: 15px" name="perimeter_mean" type="number" step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="third"><strong>Smoothness Mean - Mean of local variation in radius lengths</strong></label> <input class="form-control" style="font-size: 15px" name="smoothness_mean" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="fourth"><strong>Compactness Mean</strong></label> <input class="form-control" style="font-size: 15px" name="compactness_mean" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="fifth"><strong>Concavity Mean - Mean of severity of concave portions of the contour</strong></label> <input class="form-control" style="font-size: 15px" name="concavity_mean" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="sixth"><strong>Concave Points Mean - Mean for number of concave portions of the contour</strong></label> <input class="form-control" style="font-size: 15px" name="concave_points_mean" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="seventh"><strong>Symmetry Mean</strong></label> <input class="form-control" style="font-size: 15px" name="symmetry_mean" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="eighth"><strong>Radius Se - Standard error for the mean of distances from center to points on the perimeter</strong></label> <input class="form-control" name="radius_se" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="ninth"><strong>Compactness Se - Standard error for perimeter² / area — 1.0</strong></label> <input class="form-control" style="font-size: 15px" name="compactness_se" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="tenth"><strong>Concavity Se - Standard error for severity of concave portions of the contour</strong></label> <input class="form-control" style="font-size: 15px" name="concavity_se" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="eleventh"><strong>Concave Points Se - Standard error for number of concave portions of the contour</strong></label> <input class="form-control" name="concave_points_se" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="twelfth"><strong>Texture Worst - “worst” or largest mean value for standard deviation of gray-scale values</strong></label> <input class="form-control" name="texture_worst" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="thirteenth"><strong>Smoothness Worst - “worst” or largest mean value for local variation in radius lengths</strong></label> <input class="form-control" name="smoothness_worst" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="fourteenth"><strong>Compactness Worst - “worst” or largest mean value for perimeter² / area — 1.0</strong></label> <input class="form-control" name="compactness_worst" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="fifteenth"><strong>Concavity Worst - “worst” or largest mean value for severity of concave portions of the contour</strong></label> <input class="form-control" name="concavity_worst" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="sixteenth"><strong>Concave Points Worst - “worst” or largest mean value for number of concave portions of the contour</strong></label> <input class="form-control" name="concave_points_worst" style="font-size: 15px" type="number" step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="seventeenth"><strong>Symmetry Worst</strong></label> <input class="form-control" name="symmetry_worst" style="font-size: 15px" type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <div class="form-group">
+            <label for="eighteenth"><strong>Fractal Dimension Worst - “worst” or largest mean value for “coastline approximation” — 1</strong></label> <input class="form-control" name="fractal_dimension_worst" style="font-size: 15px"  type="number"  step="any" required="required" style="font-weight:bold"></div>
+
+            <button style="font-size:15px" class="btn btn-info" type="submit ">Predict</button>
+        </form>
+        </section> 
+
+<!-- footer section starts  -->
+
+<section class="box-container" style="background-color: black;">
+    <div style="color: whitesmoke; font-size: 20px; text-align: center;"> © 2021 Healthcare System | All rights reserved.</div>
+</section>
+<!-- footer section ends -->
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

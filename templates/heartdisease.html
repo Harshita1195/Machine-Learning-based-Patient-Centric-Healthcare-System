@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare System | Heart Disease</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="{{ url_for('home') }}" class="logo"> <i class="fas fa-medkit"></i> Healthcare </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('heartdisease') }}">Heart Disease</a>
+        <a href="{{ url_for('liverdisease') }}">Liver Disease</a>
+        <a href="{{ url_for('breastcancer') }}">Breast Cancer</a>
+        <a href="{{ url_for('malariadisease') }}">Malaria</a>
+        <a href="{{ url_for('pneumoniadisease') }}">Pneumonia</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search" style="visibility: hidden;"></div>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box" style="background: url(static/images/heart.jpg) no-repeat;">
+                    <div class="content">
+                        <h3 style="color: whitesmoke;">Heart Disease Predictor</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+    <!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="content", style="text-align: justify;">
+        <p>
+        A disease is an unnatural medical condition that negatively affects the functional state of an organism and is generally associated with certain signs of illness. As reported by World Health Organization (WHO), Heart Disease and Stroke are the world’s biggest killers and have remained the leading causes of death globally in the last 15 years. In the direction of predicting heart disease, Machine Learning can present remarkable features that simplify the identification of unseen patterns, eventually providing clinical insights that assist physicians in planning and providing care. 
+        The Heart Disease dataset has been taken from Kaggle. This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. It has a total number of 303 rows and 14 columns among which 165 have a heart disease.
+        <br>Data Source: <a href="https://www.kaggle.com/johnsmith88/heart-disease-dataset">Heart Disease Dataset</a></p>
+    
+
+        <strong><p>Attribute Information:</strong><br>
+        age: age in years
+        <br>sex: (1 = male; 0 = female)
+        <br>cp: chest pain type
+        <br>trestbps: resting blood pressure (in mm Hg on admission to the hospital)
+        <br>chol: serum cholestoral in mg/dl
+        <br>fbs: (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)
+        <br>restecg: resting electrocardiographic results
+        <br>thalach: maximum heart rate achieved
+        <br>exang: exercise induced angina (1 = yes; 0 = no)
+        <br>oldpeak: ST depression induced by exercise relative to rest
+        <br>slope: the slope of the peak exercise ST segment
+        <br>ca: number of major vessels (0–4) colored by flourosopy
+        <br>thal: thalassemia (1 = normal; 2 = fixed defect; 3 = reversable defect)
+        <br>target: (1= heart disease or 0 = no heart disease)</p>
+
+    </div>
+</section>
+
+<section class="reviews" id="reviews" style="background-color: rosybrown;">    
+    <h1 style="color: green;">Heart Disease Predictor</h1>
+
+        <form action="{{ url_for('heartdisease')}}" method="POST" style="font-size: 15px">
+        <div class="form-group">
+            <label><strong>Age</strong></label> 
+            <input class="form-control" style="font-size: 15px" name="age" type="number" required="required"
+            style="font-weight: bold">
+        </div>
+
+            <div class="form-group">
+            <label class="form-group"><strong>Gender (1 = male; 0 = female)</strong></label>
+            <select class="form-control" style="font-size: 15px" name = 'sex' style="font-weight: bold" required>
+               <option value="0">Female</option>
+               <option value="1">Male</option>
+           </select>
+        </div>
+
+            <div class="form-group">  
+            <label><strong>Chest Pain Type</strong></label>
+            <select style="font-size: 15px" name = 'cp' class="form-control" style="font-weight: bold" required>
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+             </select>
+            </div>
+
+            <div class="form-group">
+            <label><strong>Resting Blood Pressure (in mm Hg)</strong></label> <input class="form-control" style="font-size: 15px" name="trestbps" type="number" required="required" style="font-weight: bold">
+            </div>
+
+            <div class="form-group"> 
+            <label><strong>Resting Electrocardiographic Results</strong></label> 
+            <select style="font-size: 15px" name = 'restecg' class="form-control" style="font-weight: bold" required>
+               <option value="0">0</option>
+               <option value="1">1</option>
+             </select>
+            </div>
+
+            <div class="form-group"> 
+            <label><strong>MaxHeartRate (maximum heart rate achieved eg. 156, 173, 187,...)</strong></label> <input class="form-control" style="font-size: 15px" name="thalach" type="number" required="required" style="font-weight: bold">
+            </div>
+
+            <div class="form-group">
+            <label><strong>Exercise Induced Angina (0 = No; 1 = Yes)</strong></label>
+            <select name = 'exang' style="font-size: 15px" class="form-control" style="font-weight: bold" required>
+               <option value="0">No</option>
+               <option value="1">Yes</option>
+             </select>
+            </div>
+
+            <div class="form-group">
+            <label><strong>STdepression (ST depression induced by exercise relative to rest eg. 0.8, 1.4, 3.5,...)</strong></label>
+            <input class="form-control" style="font-size: 15px" name="oldpeak" type="number" step="any" required="required" style="font-weight: bold">
+            </div>
+
+            <div class="form-group">
+            <label><strong>Slope of the peak exercise ST segment</strong></label>
+            <select name = 'slope' style="font-size: 15px" class="form-control" style="font-weight: bold" required>
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+             </select>
+            </div>
+
+            <div class="form-group">
+            <label><strong>Number of major vessels</strong></label>
+            <select name = 'ca' style="font-size: 15px" class="form-control" style="font-weight: bold" required>
+               <option value="0">0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+             </select></div>
+
+           <div class="form-group">
+           <label><strong>Thalassemia (1=Normal; 2=Fixed Defect; 3=Reversable)</strong></label>
+           <select name = 'thal' style="font-size: 15px" class="form-control" style="font-weight: bold" required>
+               <option value="1">Normal</option>
+               <option value="2">Fixed Defect</option>
+               <option value="3">Reversable</option>
+             </select></div>
+
+            <button  style="font-size:15px" class="btn btn-info" type="submit ">Predict</button>
+        </form>
+</section> 
+
+
+<!-- footer section starts  -->
+
+<section class="box-container" style="background-color: black;">
+    <div style="color: whitesmoke; font-size: 20px; text-align: center;"> © 2021 Healthcare System | All rights reserved.</div>
+</section>
+<!-- footer section ends -->
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare System</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-medkit"></i> Healthcare </a>
+
+    <nav class="navbar">
+        <div id="nav-close" class="fas fa-times"></div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('heartdisease') }}">Heart Disease</a>
+        <a href="{{ url_for('liverdisease') }}">Liver Disease</a>
+        <a href="{{ url_for('breastcancer') }}">Breast Cancer</a>
+        <a href="{{ url_for('malariadisease') }}">Malaria</a>
+        <a href="{{ url_for('pneumoniadisease') }}">Pneumonia</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search" style="visibility: hidden;"></div>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- search form  -->
+
+<div class="search-form">
+
+    <div id="close-search" class="fas fa-times"></div>
+
+    <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+</div>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="box second" style="background: url(static/images/h1.jpg) no-repeat;">
+                    <div class="content">
+                        <span style="color: green;"><b>Artificial Intelligence based Healthcare system</b></span>
+                        <br>
+                        <a href="#about" class="btn">Learn More!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box second" style="background: url(static/images/med.jpg) no-repeat;">
+                    <div class="content">
+                        <span style="color: green;"><b>Predictive Analytics with Advance ML Algorithms</b></span>
+                        <br>
+                        <a href="#packages" class="btn">Predict Now!</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="image">
+        <img src="static/images/img1.png" alt="">
+    </div>
+
+    <div class="content", style="text-align: justify;">
+        <p>Access to quality healthcare and doctors has always been a concern in developing countries and remote areas. To deal with such issues, this healthcare web application is developed. Healthcare data was fed to machine learning training models and engines for predictive modelling. The accuracy of these models is directly proportional to the training they get. These models will be able to predict the potential health risks to a patient a lot earlier so that they could take the preventive measures and live a long healthy life.</p>
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading">Predictors</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="static/images/hd.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Heart Disease</h3>
+                <a href="{{ url_for('heartdisease') }}" class="btn">Predict Now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="static/images/ld.jpeg" alt="">
+            </div>
+            <div class="content">
+                <h3>Liver Disease</h3>
+                <a href="{{ url_for('liverdisease') }}" class="btn">Predict Now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="static/images/br_cn.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Breast Cancer</h3>
+                <a href="{{ url_for('breastcancer') }}" class="btn">Predict Now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="static/images/ml.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Malaria</h3>
+                <a href="{{ url_for('malariadisease') }}" class="btn">Predict Now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="static/images/pn.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Pneumonia</h3>
+                <a href="{{ url_for('pneumoniadisease') }}" class="btn">Predict Now</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- packages section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer" style="background-color: black;">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Contact Information</h3>
+            <a href="https://www.linkedin.com/in/harshita95/"> <i class="fab fa-linkedin"></i> Linkedin </a>
+            <a href="https://github.com/Harshita1195"> <i class="fab fa-github"></i> Github </a>
+            <a href="mailto:harshitapandey9511@gmail.com"> <i class="fas fa-envelope"></i> harshitapandey9511@gmail.com </a>
+            <a href="#"> <i class="fas fa-map"></i> Noida, Uttar Pradesh, India - 201301 </a>
+        </div>
+
+        <div class="box">
+            <h3>Quick Links</h3>
+            <a href="{{ url_for('heartdisease') }}">Heart Disease</a>
+            <a href="{{ url_for('liverdisease') }}">Liver Disease</a>
+            <a href="{{ url_for('breastcancer') }}">Breast Cancer</a>
+            <a href="{{ url_for('malariadisease') }}">Malaria</a>
+            <a href="{{ url_for('pneumoniadisease') }}">Pneumonia</a>
+        </div> 
+    </div>
+
+    <div class="credit"> © 2021 Healthcare System | All rights reserved.</div>
+
+</section>
+<!-- footer section ends -->
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/script.js"></script>
+
+</body>
+</html>
